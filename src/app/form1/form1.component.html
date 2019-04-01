@@ -1,0 +1,31 @@
+<div class="example-container">
+  <h2>Marvel</h2>
+
+  <div
+    cdkDropList
+    #marvelList="cdkDropList"
+    [cdkDropListData]="Marvel"
+    [cdkDropListConnectedTo]="[dcList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let item of Marvel" cdkDrag>{{item}}</div>
+  </div>
+</div>
+
+<div class="example-container">
+  <h2>DC</h2>
+
+  <div
+    cdkDropList
+    #dcList="cdkDropList"
+    [cdkDropListData]="DC"
+    [cdkDropListConnectedTo]="[marvelList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let item of DC" cdkDrag>{{item}}</div>
+  </div>
+</div>
+<br/>
+<input type="button" value="Preview" (click)="show()">
+
+<app-form2 [drag1]="drag1" [drag2]="drag2"></app-form2>
